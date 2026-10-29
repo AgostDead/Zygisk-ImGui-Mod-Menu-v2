@@ -23,12 +23,14 @@ jobs:
       uses: nttld/setup-ndk@v1
       id: setup-ndk
       with:
-        ndk-version: r25c
+        # Пробуем версию, которая точно была актуальна для этого проекта
+        ndk-version: r25c 
 
     - name: Build with Gradle
       run: |
         chmod +x gradlew
-        ./gradlew :module:assembleRelease
+        # Принудительно указываем Gradle использовать NDK, который мы только что скачали
+        ./gradlew :module:assembleRelease -Pandroid.ndkVersion=${{ steps.setup-ndk.outputs.ndk-version }}
       env:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
