@@ -22,10 +22,11 @@ LOCAL_ARM_MODE := arm
 
 LOCAL_STATIC_LIBRARIES := libdobby
 
-# ВОТ ЭТА СТРОКА ДОБАВЛЕНА:
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/ImGui \
-                    $(LOCAL_PATH)/ImGui/backends \
+# ИСПРАВЛЕННЫЕ ПУТИ (Добавлен Includes в начало и корень)
+LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/Includes \
+                    $(LOCAL_PATH)/ImGui \
+                    $(LOCAL_PATH)/ImGui/backends \
                     $(LOCAL_PATH)/KittyMemory
 
 LOCAL_SRC_FILES := main.cpp \
