@@ -22,6 +22,12 @@ LOCAL_ARM_MODE := arm
 
 LOCAL_STATIC_LIBRARIES := libdobby
 
+# ВОТ ЭТА СТРОКА ДОБАВЛЕНА:
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/ImGui \
+                    $(LOCAL_PATH)/ImGui/backends \
+                    $(LOCAL_PATH)/Includes \
+                    $(LOCAL_PATH)/KittyMemory
+
 LOCAL_SRC_FILES := main.cpp \
 				   KittyMemory/KittyMemory.cpp \
 				   KittyMemory/MemoryPatch.cpp \
